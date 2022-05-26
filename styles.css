@@ -43,7 +43,7 @@ button:hover {
 
 .display {
     text-align: right;
-    min-height: 130px;
+    height: 150px;
 }
 
 .previous-operation {
@@ -54,7 +54,7 @@ button:hover {
 
 .current-operation {
     font-size: 50px;
-    padding: 5px 5px 20px 5px;
+    padding: 5px 5px 40px 5px;
 }
 
 .buttons {
