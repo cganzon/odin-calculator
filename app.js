@@ -53,7 +53,9 @@ equalsBtn.addEventListener("click", () => {
 });
 
 decimalBtn.addEventListener("click", (e) => {
-  alert(e.target.textContent);
+  if(currentOperation.includes(".")) return;
+  currentOperation += e.target.textContent;
+  currentOperationDisplay.textContent = currentOperation;
 });
 
 allClearBtn.addEventListener("click", () => {
