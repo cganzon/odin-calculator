@@ -55,8 +55,11 @@ decimalBtn.addEventListener('click', e => {
   alert(e.target.textContent);
 })
 
-allClearBtn.addEventListener('click', e => {
-  alert(e.target.textContent);
+allClearBtn.addEventListener('click', () => {
+  currentOperation = '';
+  previousOperation = '';
+  currentOperator = '';
+  currentOperationDisplay.textContent = currentOperation;
 })
 
 deleteBtn.addEventListener('click', e => {
