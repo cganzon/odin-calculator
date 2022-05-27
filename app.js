@@ -34,16 +34,14 @@ operatorBtns.forEach(button => {
     currentOperator = e.target.textContent;
     previousOperation = currentOperation;
     currentOperation = '';
-    console.log(previousOperation);
-    console.log(currentOperator);
   })
 })
 
-equalsBtn.addEventListener('click', e =>{
+equalsBtn.addEventListener('click', () =>{
+  if(!previousOperation) return;
   const result = operate(currentOperator, Number(previousOperation), Number(currentOperation));
   currentOperation = result.toString();
   previousOperation = '';
-  console.log(currentOperation);
   currentOperationDisplay.textContent = result;
 })
 
