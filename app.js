@@ -17,9 +17,9 @@ const divide = (numOne, numTwo) => numOne / numTwo;
 
 const operate = (operator, numOne, numTwo) => {
   if (operator === "+") return add(numOne, numTwo);
-  if (operator === "-") return subtract(numOne, numTwo);
-  if (operator === "*") return multiply(numOne, numTwo);
-  if (operator === "/") return divide(numOne, numTwo);
+  if (operator === "−") return subtract(numOne, numTwo);
+  if (operator === "⨉") return multiply(numOne, numTwo);
+  if (operator === "÷") return divide(numOne, numTwo);
 };
 
 numberBtns.forEach(button => {
@@ -37,6 +37,14 @@ operatorBtns.forEach(button => {
     console.log(previousOperation);
     console.log(currentOperator);
   })
+})
+
+equalsBtn.addEventListener('click', e =>{
+  const result = operate(currentOperator, Number(previousOperation), Number(currentOperation));
+  currentOperation = result.toString();
+  previousOperation = '';
+  console.log(currentOperation);
+  currentOperationDisplay.textContent = result;
 })
 
 decimalBtn.addEventListener('click', e => {
