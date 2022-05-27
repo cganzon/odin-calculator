@@ -33,6 +33,7 @@ operatorBtns.forEach(button => {
   button.addEventListener('click', e => {
     currentOperator = e.target.textContent;
     previousOperation = currentOperation;
+    currentOperation = '';
     console.log(previousOperation);
     console.log(currentOperator);
   })
