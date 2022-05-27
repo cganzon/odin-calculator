@@ -36,6 +36,7 @@ operatorBtns.forEach((button) => {
       currentOperationDisplay.textContent = result;
       currentOperation = result.toString();
       previousOperation = "";
+      currentOperator = "";
     }
     currentOperator = e.target.textContent;
     previousOperation = currentOperation;
