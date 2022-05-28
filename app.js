@@ -66,6 +66,7 @@ allClearBtn.addEventListener("click", () => {
   currentOperationDisplay.textContent = currentOperation;
 });
 
-deleteBtn.addEventListener("click", (e) => {
-  alert(e.target.textContent);
+deleteBtn.addEventListener("click", () => {
+  currentOperation = currentOperation.slice(0, -1);
+  currentOperationDisplay.textContent = currentOperation;
 });
