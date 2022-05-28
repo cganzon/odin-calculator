@@ -33,7 +33,7 @@ operatorBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (currentOperator) {
       const result = operate(currentOperator, Number(previousOperation), Number(currentOperation));
-      currentOperationDisplay.textContent = result;
+      currentOperationDisplay.textContent = result.toFixed(8);
       currentOperation = result.toString();
       previousOperation = "";
       currentOperator = "";
@@ -49,7 +49,7 @@ equalsBtn.addEventListener("click", () => {
   const result = operate(currentOperator, Number(previousOperation), Number(currentOperation));
   currentOperation = result.toString();
   previousOperation = "";
-  currentOperationDisplay.textContent = result;
+  currentOperationDisplay.textContent = result.toFixed(8);
 });
 
 decimalBtn.addEventListener("click", (e) => {
