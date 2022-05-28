@@ -24,6 +24,7 @@ const operate = (operator, numOne, numTwo) => {
 
 numberBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
+    if(currentOperation.length > 10) return;
     currentOperation += e.target.textContent;
     currentOperationDisplay.textContent = currentOperation;
   });
