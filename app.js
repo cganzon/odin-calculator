@@ -32,6 +32,13 @@ numberBtns.forEach((button) => {
 
 operatorBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
+    if(currentOperator) {
+      let result = operate(currentOperator, +previousOperation, +currentOperation);
+      currentOperation = result.toString();
+      currentOperationDisplay.textContent = currentOperation;
+      previousOperation = "";
+      currentOperator = "";
+    }
     currentOperator = e.target.textContent;
     previousOperation = currentOperation;
     currentOperation = "";
@@ -42,4 +49,6 @@ equalsBtn.addEventListener("click", () => {
   let result = operate(currentOperator, +previousOperation, +currentOperation);
   currentOperation = result.toString();
   currentOperationDisplay.textContent = currentOperation;
+  previousOperation = "";
+  currentOperator = "";
 })
