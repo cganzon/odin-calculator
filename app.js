@@ -37,3 +37,9 @@ operatorBtns.forEach((button) => {
     currentOperation = "";
   });
 });
+
+equalsBtn.addEventListener("click", () => {
+  let result = operate(currentOperator, +previousOperation, +currentOperation);
+  currentOperation = result.toString();
+  currentOperationDisplay.textContent = currentOperation;
+})
