@@ -34,6 +34,7 @@ operatorBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
     if(currentOperator) {
       let result = operate(currentOperator, +previousOperation, +currentOperation);
+      result = Math.round(result * 100000000) / 100000000;
       currentOperation = result.toString();
       currentOperationDisplay.textContent = currentOperation;
       previousOperation = "";
@@ -47,6 +48,7 @@ operatorBtns.forEach((button) => {
 
 equalsBtn.addEventListener("click", () => {
   let result = operate(currentOperator, +previousOperation, +currentOperation);
+  result = Math.round(result * 100000000) / 100000000;
   currentOperation = result.toString();
   currentOperationDisplay.textContent = currentOperation;
   previousOperation = "";
