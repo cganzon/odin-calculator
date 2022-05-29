@@ -4,6 +4,7 @@ const decimalBtn = document.querySelector("#decimal");
 const equalsBtn = document.querySelector("#equals");
 const allClearBtn = document.querySelector("#all-clear");
 const deleteBtn = document.querySelector("#delete");
+const negateBtn = document.querySelector("#negate");
 const currentOperationDisplay = document.querySelector(".current-operation");
 
 let currentOperation = "";
@@ -69,5 +70,15 @@ allClearBtn.addEventListener("click", () => {
 
 deleteBtn.addEventListener("click", () => {
   currentOperation = currentOperation.slice(0, -1);
+  currentOperationDisplay.textContent = currentOperation;
+});
+
+negateBtn.addEventListener("click", () => {
+  if (currentOperation === 0 || currentOperation === "") return;
+  if (currentOperation.includes("-")) {
+    currentOperation = currentOperation.substring(1);
+  } else {
+    currentOperation = `-${currentOperation}`;
+  }
   currentOperationDisplay.textContent = currentOperation;
 });
