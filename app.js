@@ -22,6 +22,15 @@ const operate = (operator, numOne, numTwo) => {
   if (operator === "/") return divide(numOne, numTwo);
 };
 
+const evaluate = (operator, numOne, numTwo) => {
+  let result = operate(operator, numOne, numTwo);
+  result = Math.round(result * 100000000) / 100000000;
+  currentOperation = result.toString();
+  currentOperationDisplay.textContent = currentOperation;
+  previousOperation = "";
+  currentOperator = "";
+}
+
 numberBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (currentOperation.length > 10) return;
@@ -33,12 +42,7 @@ numberBtns.forEach((button) => {
 operatorBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
     if(currentOperator) {
-      let result = operate(currentOperator, +previousOperation, +currentOperation);
-      result = Math.round(result * 100000000) / 100000000;
-      currentOperation = result.toString();
-      currentOperationDisplay.textContent = currentOperation;
-      previousOperation = "";
-      currentOperator = "";
+      evaluate(currentOperator, +previousOperation, +currentOperation);
     }
     currentOperator = e.target.textContent;
     previousOperation = currentOperation;
@@ -47,10 +51,5 @@ operatorBtns.forEach((button) => {
 });
 
 equalsBtn.addEventListener("click", () => {
-  let result = operate(currentOperator, +previousOperation, +currentOperation);
-  result = Math.round(result * 100000000) / 100000000;
-  currentOperation = result.toString();
-  currentOperationDisplay.textContent = currentOperation;
-  previousOperation = "";
-  currentOperator = "";
+  evaluate(currentOperator, +previousOperation, +currentOperation);
 })
