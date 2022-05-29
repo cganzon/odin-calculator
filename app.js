@@ -53,3 +53,10 @@ operatorBtns.forEach((button) => {
 equalsBtn.addEventListener("click", () => {
   evaluate(currentOperator, +previousOperation, +currentOperation);
 })
+
+allClearBtn.addEventListener("click", () => {
+  currentOperation = "";
+  previousOperation = "";
+  currentOperator = "";
+  currentOperationDisplay.textContent = "";
+})
