@@ -29,7 +29,7 @@ const evaluate = (operator, numOne, numTwo) => {
   currentOperationDisplay.textContent = currentOperation;
   previousOperation = "";
   currentOperator = "";
-}
+};
 
 numberBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -41,7 +41,7 @@ numberBtns.forEach((button) => {
 
 operatorBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
-    if(currentOperator) {
+    if (currentOperator) {
       evaluate(currentOperator, +previousOperation, +currentOperation);
     }
     currentOperator = e.target.textContent;
@@ -50,13 +50,19 @@ operatorBtns.forEach((button) => {
   });
 });
 
+decimalBtn.addEventListener("click", (e) => {
+  if (currentOperation.includes(".")) return;
+  currentOperation += e.target.textContent;
+  currentOperationDisplay.textContent = currentOperation;
+});
+
 equalsBtn.addEventListener("click", () => {
   evaluate(currentOperator, +previousOperation, +currentOperation);
-})
+});
 
 allClearBtn.addEventListener("click", () => {
   currentOperation = "";
   previousOperation = "";
   currentOperator = "";
   currentOperationDisplay.textContent = "";
-})
+});
