@@ -22,10 +22,18 @@ const operate = (operator, numOne, numTwo) => {
   if (operator === "/") return divide(numOne, numTwo);
 };
 
-numberBtns.forEach(button => {
+numberBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
-    if(currentOperation.length > 10) return;
+    if (currentOperation.length > 10) return;
     currentOperation += e.target.textContent;
     currentOperationDisplay.textContent = currentOperation;
-  })
-})
+  });
+});
+
+operatorBtns.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    currentOperator = e.target.textContent;
+    previousOperation = currentOperation;
+    currentOperation = "";
+  });
+});
